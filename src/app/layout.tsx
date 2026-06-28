@@ -8,11 +8,15 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+// Base metadata — individual pages override title, description, and canonical.
 export const metadata: Metadata = {
-  title: "HivarSoft — Affordable & Open Source Software",
+  metadataBase: new URL("https://hivarsoft.com"),
+  title: {
+    default: "HivarSoft — Affordable & Open Source Software",
+    template: "%s | HivarSoft",
+  },
   description:
     "HivarSoft delivers affordable, open-source, and scalable software solutions for modern businesses. From custom applications and SaaS platforms to AI/ML Apps.",
-  metadataBase: new URL("https://hivarsoft.com"),
   keywords: [
     "open source software",
     "affordable software",
@@ -28,11 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://hivarsoft.com",
     siteName: "HivarSoft",
-    title: "HivarSoft — Affordable & Open Source Software",
-    description:
-      "Building affordable, open-source, and scalable software solutions for businesses, startups, and individuals.",
     images: [
       {
         url: "/Logo.png",
@@ -44,9 +44,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HivarSoft — Affordable & Open Source Software",
-    description:
-      "Building affordable, open-source, and scalable software solutions for businesses, startups, and individuals.",
     images: ["/Logo.png"],
   },
   robots: {
@@ -59,9 +56,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  alternates: {
-    canonical: "https://hivarsoft.com",
   },
 };
 
