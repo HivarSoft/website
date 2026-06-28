@@ -113,15 +113,15 @@ export default function Contributing() {
         <div className="reveal stagger-4 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 max-w-3xl mx-auto mb-8 sm:mb-12 text-left">
           <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-purple-500 transition-all card-glow">
             <div className="text-3xl mb-3" style={{ animation: "float 3.5s ease-in-out infinite" }}>🚀</div>
-            <h3 className="font-bold text-white text-lg mb-2">Commercial Products</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <h3 className="font-bold text-white text-base sm:text-lg mb-2">Commercial Products</h3>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               Polished SaaS applications with fair, transparent pricing. No bloat, no enterprise lock-in — just software that works.
             </p>
           </div>
           <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-purple-500 transition-all card-glow">
             <div className="text-3xl mb-3" style={{ animation: "float 4s ease-in-out 0.5s infinite" }}>🌐</div>
-            <h3 className="font-bold text-white text-lg mb-2">Open Source</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <h3 className="font-bold text-white text-base sm:text-lg mb-2">Open Source</h3>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               Developer tools and utilities released freely. Learn from the code, fork it, contribute back — the community makes it better.
             </p>
           </div>
@@ -140,7 +140,7 @@ export default function Contributing() {
           ))}
         </div>
 
-        <p className="reveal text-slate-500 mb-8 stagger-6">
+        <p className="reveal text-slate-500 text-sm sm:text-base mb-6 sm:mb-8 stagger-6">
           Want to contribute to our open source projects?
         </p>
 
@@ -149,7 +149,7 @@ export default function Contributing() {
             href="https://github.com/HivarSoft"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 bg-white text-slate-900 font-bold px-8 py-3.5 rounded-xl hover:bg-slate-100 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-slate-900 font-bold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl hover:bg-slate-100 hover:-translate-y-0.5 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base w-full sm:w-auto"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />

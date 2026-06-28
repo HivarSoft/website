@@ -66,32 +66,29 @@ export default function Connect() {
           <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 stagger-1">
             Connect With <span className="gradient-text">Us</span>
           </h2>
-          <p className="reveal text-slate-500 mt-4 text-sm sm:text-lg max-w-xl mx-auto stagger-2">
+          <p className="reveal text-slate-500 mt-3 sm:mt-4 text-sm sm:text-base max-w-xl mx-auto stagger-2">
             Whether you want to collaborate, contribute, or just say hi — we&apos;d love to hear from you.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 max-w-3xl mx-auto">
           {links.map((link, i) => (
             <a
               key={link.label}
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-              className={`reveal stagger-${i + 2} group flex flex-col items-center gap-3 sm:gap-4 bg-white border border-slate-100 rounded-2xl p-5 sm:p-7 text-center card-glow ${link.bg} transition-all`}
+              className={`reveal stagger-${i + 2} group flex sm:flex-col flex-row items-center gap-4 sm:gap-3 bg-white border border-slate-100 rounded-2xl p-4 sm:p-7 sm:text-center card-glow ${link.bg} transition-all`}
             >
-              {/* Icon with gradient circle */}
-              <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${link.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+              <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-linear-to-br ${link.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shrink-0`}>
                 {link.icon}
               </div>
-              <div>
-                <div className="font-bold text-slate-900 group-hover:text-purple-700 transition-colors mb-1">
+              <div className="flex-1 sm:flex-none">
+                <div className="font-bold text-sm sm:text-base text-slate-900 group-hover:text-purple-700 transition-colors">
                   {link.label}
                 </div>
-                {/* <div className="text-xs text-slate-400 break-all leading-relaxed">{link.value}</div> */}
               </div>
-              {/* Arrow */}
-              <span className="text-slate-300 group-hover:text-purple-500 transition-all group-hover:translate-x-1 text-sm">→</span>
+              <span className="text-slate-300 group-hover:text-purple-500 transition-all group-hover:translate-x-1 text-sm ml-auto sm:ml-0">→</span>
             </a>
           ))}
         </div>

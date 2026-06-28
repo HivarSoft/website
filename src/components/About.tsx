@@ -81,7 +81,7 @@ export default function About() {
               </svg>
             </span>
           </h2>
-          <p className="reveal text-lg text-slate-600 leading-relaxed stagger-2">
+          <p className="reveal text-sm sm:text-base text-slate-600 leading-relaxed stagger-2">
             HivarSoft is a software company building modern, scalable products — both commercial SaaS platforms and open source tools — for businesses, startups, and developers.
           </p>
         </div>
@@ -93,8 +93,8 @@ export default function About() {
               <div className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
                 Our Mission
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Great software, built to last</h3>
-              <p className="text-slate-600 leading-relaxed mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 sm:mb-4">Great software, built to last</h3>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-5 sm:mb-6">
                 We ship proprietary SaaS products with fair, transparent pricing — and we give back
                 to the developer community with open source tools. Not every product needs to be free,
                 but every product should be worth what you pay for it.
@@ -129,17 +129,17 @@ export default function About() {
               <div className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
                 Our Vision
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">A trusted partner for every team</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">A trusted partner for every team</h3>
             </div>
             <ul className="space-y-3">
               {values.map((v, i) => (
                 <li key={v.label}
-                  className={`reveal reveal-right stagger-${i + 2} flex items-center gap-4 bg-white border border-slate-100 rounded-xl px-4 py-3.5 card-glow`}>
-                  <div className={`w-8 h-8 rounded-lg bg-linear-to-br ${v.color} flex items-center justify-center text-base shrink-0 shadow-sm`}
+                  className={`reveal reveal-right stagger-${i + 2} flex items-center gap-3 bg-white border border-slate-100 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 card-glow`}>
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-linear-to-br ${v.color} flex items-center justify-center text-sm shrink-0 shadow-sm`}
                     style={{ animation: `float-slow ${4 + i * 0.5}s ease-in-out ${i * 0.3}s infinite` }}>
                     {v.icon}
                   </div>
-                  <span className="font-medium text-slate-800">{v.label}</span>
+                  <span className="font-medium text-sm sm:text-base text-slate-800">{v.label}</span>
                 </li>
               ))}
             </ul>

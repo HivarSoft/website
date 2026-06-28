@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       className="relative overflow-hidden bg-[#050816] text-white flex flex-col items-center justify-between"
-      style={{ minHeight: "100dvh" }}
+      style={{ minHeight: "calc(100dvh - 52px)" }}
     >
       {/* ── Animated SVG circuit background ── */}
       <svg
@@ -203,10 +203,10 @@ export default function Hero() {
 
       {/* Scroll indicator — hidden on mobile where content fills the viewport */}
       <div
-        className="hidden sm:flex relative z-10 flex-col items-center gap-1.5 text-slate-500 text-xs pb-8"
+        className="hidden sm:flex relative z-10 flex-col items-center gap-1.5 text-slate-500 text-xs pb-5"
         style={{ animation: "fade-in 1s ease 1.4s both" }}
       >
-        <span className="tracking-widest uppercase text-[9px] sm:text-[10px]">Scroll</span>
+        <span className="tracking-widest uppercase text-[9px] sm:text-[10px] pb-2">Scroll</span>
         <svg width="16" height="24" viewBox="0 0 20 28" fill="none" aria-hidden="true"
           className="sm:w-5 sm:h-7"
           style={{ animation: "float 2s ease-in-out infinite" }}>

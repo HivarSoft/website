@@ -23,17 +23,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Image src="/Logo.png" alt="HivarSoft Logo" width={40} height={40} className="rounded-xl" />
+              <Image src="/Logo.png" alt="HivarSoft Logo" width={36} height={36} className="rounded-xl" />
               <div className="absolute -inset-1 rounded-2xl bg-purple-500/20 blur-sm" />
             </div>
             <div>
-              <span className="text-white font-bold text-lg block">HivarSoft</span>
+              <span className="text-white font-bold text-base sm:text-lg block">HivarSoft</span>
               <span className="text-xs text-slate-500">Creating Value Through Technology</span>
             </div>
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+          <nav className="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm">
             {[
               { label: "About",    href: "#about" },
               { label: "Services", href: "#services" },
@@ -66,9 +66,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-3 text-xs sm:text-sm">
-          <p className="text-slate-400">&copy; {year} HivarSoft. All rights reserved.</p>
-          <div className="flex flex-wrap justify-center items-center gap-3 text-slate-500">
+        <div className="flex flex-col items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+          <p className="text-slate-400 text-center">&copy; {year} HivarSoft. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 text-slate-500">
             <a href="/terms" className="hover:text-purple-400 transition-colors">Terms of Service</a>
             <span>·</span>
             <a href="/privacy" className="hover:text-purple-400 transition-colors">Privacy Policy</a>

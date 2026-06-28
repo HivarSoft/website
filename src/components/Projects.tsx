@@ -22,12 +22,12 @@ const gitStatsFeatures = [
 function FeatureCard({ icon, title, description, delay }: { icon: string; title: string; description: string; delay: number }) {
   return (
     <div
-      className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-5 transition-all duration-300 hover:-translate-y-1"
+      className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-3 sm:p-5 transition-all duration-300 hover:-translate-y-1"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="text-2xl mb-3 group-hover:scale-110 transition-transform duration-200 inline-block">{icon}</div>
-      <h4 className="font-bold text-white text-sm mb-2">{title}</h4>
-      <p className="text-xs text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">{description}</p>
+      <div className="text-xl sm:text-2xl mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-200 inline-block">{icon}</div>
+      <h4 className="font-bold text-white text-xs sm:text-sm mb-1 sm:mb-2">{title}</h4>
+      <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">{description}</p>
     </div>
   );
 }
