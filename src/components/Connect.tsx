@@ -1,69 +1,88 @@
-const links = [
+"use client";
+import { useReveal } from "@/hooks/useReveal";
+import { LuLinkedin, LuGithub, LuMail, LuArrowRight } from "react-icons/lu";
+import type { IconType } from "react-icons";
+
+const contacts: {
+  Icon: IconType;
+  label: string;
+  description: string;
+  href: string;
+  accent: string;
+  iconClass: string;
+}[] = [
   {
-    icon: "🌐",
-    label: "Website",
-    value: "hivarsoft.com",
-    href: "https://hivarsoft.com",
-  },
-  {
-    icon: "💼",
+    Icon: LuLinkedin,
     label: "LinkedIn",
-    value: "linkedin.com/company/hivarsoft",
+    description: "Follow us for updates and news",
     href: "https://linkedin.com/company/hivarsoft",
+    accent: "hover:border-blue-200 hover:bg-blue-50/50",
+    iconClass: "text-blue-600 bg-blue-50 border-blue-100",
   },
   {
-    icon: "🐙",
+    Icon: LuGithub,
     label: "GitHub",
-    value: "github.com/HivarSoft",
+    description: "Star our open source projects",
     href: "https://github.com/HivarSoft",
+    accent: "hover:border-zinc-300 hover:bg-zinc-50/80",
+    iconClass: "text-zinc-700 bg-zinc-100 border-zinc-200",
   },
   {
-    icon: "📧",
+    Icon: LuMail,
     label: "Email",
-    value: "hitesh.k.83080@gmail.com",
+    description: "Reach us directly",
     href: "mailto:hitesh.k.83080@gmail.com",
+    accent: "hover:border-violet-200 hover:bg-violet-50/50",
+    iconClass: "text-violet-600 bg-violet-50 border-violet-100",
   },
 ];
 
 export default function Connect() {
-  return (
-    <section id="connect" className="py-24 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-sm font-semibold uppercase tracking-widest text-purple-600 mb-3">
-            Get in Touch
-          </p>
-          <h2 className="text-4xl font-bold text-slate-900">
-            📢 Connect With Us
-          </h2>
-          <p className="mt-4 text-lg text-slate-500 max-w-xl mx-auto">
-            Whether you want to collaborate, contribute, or just say hi —
-            we&apos;d love to hear from you.
-          </p>
-        </div>
+  const ref = useReveal();
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("mailto") ? undefined : "_blank"}
-              rel={
-                link.href.startsWith("mailto")
-                  ? undefined
-                  : "noopener noreferrer"
-              }
-              className="flex flex-col items-center gap-3 bg-white border border-slate-100 rounded-2xl p-6 text-center hover:border-purple-200 hover:shadow-md transition-all group"
-            >
-              <span className="text-3xl">{link.icon}</span>
-              <span className="font-semibold text-slate-900 group-hover:text-purple-700 transition-colors">
-                {link.label}
-              </span>
-              <span className="text-xs text-slate-400 break-all">
-                {link.value}
-              </span>
-            </a>
-          ))}
+  return (
+    <section id="connect" className="py-20 md:py-32 bg-white relative overflow-hidden">
+      {/* Dot grid */}
+      <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-35 pointer-events-none" />
+
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+          {/* Left — text */}
+          <div>
+            <p className="reveal text-xs font-bold uppercase tracking-widest text-violet-600 mb-4">Get in Touch</p>
+            <h2 className="reveal text-3xl sm:text-5xl font-extrabold text-zinc-900 leading-tight stagger-1">
+              Let&apos;s build<br />
+              <span className="gradient-text">something great.</span>
+            </h2>
+            <p className="reveal text-zinc-500 mt-5 text-[15px] leading-relaxed stagger-2 max-w-sm">
+              Whether you want to collaborate, contribute to open source, or just say hi —
+              we&apos;d love to hear from you.
+            </p>
+          </div>
+
+          {/* Right — contact cards */}
+          <div className="flex flex-col gap-3">
+            {contacts.map(({ Icon, label, description, href, accent, iconClass }, i) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("mailto") ? undefined : "_blank"}
+                rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                className={`reveal stagger-${i + 2} reveal-right group flex items-center gap-4 bg-white border border-zinc-100 ${accent} rounded-2xl px-5 py-4 card-lift transition-colors`}
+              >
+                <div className={`w-10 h-10 rounded-xl border flex items-center justify-center shrink-0 ${iconClass}`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[14px] font-bold text-zinc-900">{label}</div>
+                  <div className="text-[12.5px] text-zinc-400">{description}</div>
+                </div>
+                <LuArrowRight className="w-4 h-4 text-zinc-300 group-hover:text-zinc-500 group-hover:translate-x-0.5 transition-all shrink-0" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

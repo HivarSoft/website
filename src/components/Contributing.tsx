@@ -1,61 +1,104 @@
-const ways = [
-  { icon: "🐛", text: "Fixing bugs" },
-  { icon: "📖", text: "Improving documentation" },
-  { icon: "💡", text: "Suggesting features" },
-  { icon: "💻", text: "Contributing code" },
-];
+"use client";
+import { useReveal } from "@/hooks/useReveal";
+import { LuGithub, LuRocket, LuGlobe } from "react-icons/lu";
 
 export default function Contributing() {
-  return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-3xl p-12 text-center">
-          <div className="text-5xl mb-6">🤝</div>
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Open Source First
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-            We welcome contributions from developers around the world. Many of
-            our tools and projects are open source, allowing developers and
-            organisations to learn, adapt, and build upon them.
-          </p>
+  const ref = useReveal();
 
-          <div className="flex flex-wrap justify-center gap-4 mb-10">
-            {ways.map((w) => (
-              <div
-                key={w.text}
-                className="flex items-center gap-2 bg-white border border-purple-100 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 shadow-sm"
+  return (
+    <section className="py-20 md:py-32 bg-zinc-950 relative overflow-hidden">
+      {/* Dot grid */}
+      <div aria-hidden="true" className="dot-grid-dark absolute inset-0 opacity-60 pointer-events-none" />
+
+      {/* Radial tint */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 70%)",
+        }}
+      />
+
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+
+          {/* Left — text */}
+          <div>
+            <p className="reveal text-xs font-bold uppercase tracking-widest text-violet-400 mb-4">Open Source &amp; Commercial</p>
+            <h2 className="reveal text-3xl sm:text-5xl font-extrabold text-white leading-tight stagger-1">
+              Two ways<br />
+              <span className="gradient-text">we build.</span>
+            </h2>
+            <p className="reveal text-zinc-400 mt-5 text-[15px] leading-relaxed stagger-2">
+              We ship polished SaaS products with fair pricing, and we give back to the
+              developer community with open source tools anyone can use, fork, and contribute to.
+            </p>
+
+            <div className="reveal stagger-3 mt-8 flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://github.com/HivarSoft"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white text-zinc-900 font-bold px-6 py-3 rounded-xl hover:bg-zinc-100 hover:-translate-y-0.5 transition-all text-[14px] shadow-lg"
               >
-                <span>{w.icon}</span>
-                {w.text}
-              </div>
-            ))}
+                <LuGithub className="w-4 h-4" />
+                Star on GitHub
+              </a>
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center gap-2 bg-zinc-900 border border-zinc-700 hover:border-violet-500 text-white font-semibold px-6 py-3 rounded-xl hover:-translate-y-0.5 transition-all text-[14px]"
+              >
+                View Products →
+              </a>
+            </div>
           </div>
 
-          <p className="text-slate-500 mb-6">
-            Your contributions help make software better for everyone.
-          </p>
+          {/* Right — cards */}
+          <div className="flex flex-col gap-4">
+            <div className="reveal reveal-right stagger-2 bg-zinc-900 border border-zinc-800 hover:border-violet-600/50 rounded-2xl p-6 card-lift">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-violet-500/15 border border-violet-500/20 flex items-center justify-center shrink-0">
+                  <LuRocket className="w-5 h-5 text-violet-400" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-[15px] font-bold text-white mb-1.5">Commercial Products</h3>
+                  <p className="text-zinc-500 text-[13.5px] leading-relaxed">
+                    Polished SaaS applications with transparent pricing. No bloat,
+                    no enterprise lock-in — just software that works.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-          <a
-            href="https://github.com/HivarSoft"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                clipRule="evenodd"
-              />
-            </svg>
-            ⭐ Star our repositories
-          </a>
+            <div className="reveal reveal-right stagger-3 bg-zinc-900 border border-zinc-800 hover:border-emerald-600/50 rounded-2xl p-6 card-lift">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                  <LuGlobe className="w-5 h-5 text-emerald-400" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-[15px] font-bold text-white mb-1.5">Open Source</h3>
+                  <p className="text-zinc-500 text-[13.5px] leading-relaxed">
+                    Developer tools and utilities released freely. Learn from the code,
+                    fork it, and contribute back — the community makes it better.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="reveal reveal-right stagger-4 bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3.5">Ways to Contribute</p>
+              <div className="grid grid-cols-2 gap-y-2.5 gap-x-4">
+                {["Fix bugs", "Improve docs", "Suggest features", "Write code"].map((way) => (
+                  <div key={way} className="flex items-center gap-2 text-[13px] text-zinc-400">
+                    <span className="w-1.5 h-1.5 rounded-full bg-violet-500 shrink-0" aria-hidden="true" />
+                    {way}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
