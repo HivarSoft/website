@@ -41,9 +41,9 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 
 export default function About() {
   return (
-    <section id="about" className="py-28 bg-white relative overflow-hidden">
-      {/* Animated SVG network */}
-      <svg aria-hidden="true" className="absolute right-0 top-0 w-1/2 h-full opacity-35 pointer-events-none" viewBox="0 0 600 700" fill="none">
+    <section id="about" className="py-16 md:py-28 bg-white relative overflow-hidden">
+      {/* Animated SVG network — hidden on mobile to avoid overlap */}
+      <svg aria-hidden="true" className="hidden sm:block absolute right-0 top-0 w-1/2 h-full opacity-35 pointer-events-none" viewBox="0 0 600 700" fill="none">
         <defs>
           <filter id="about-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
@@ -66,11 +66,11 @@ export default function About() {
         ))}
       </svg>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-20">
+        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-20">
           <p className="reveal text-sm font-semibold uppercase tracking-widest text-purple-600 mb-3">About Us</p>
-          <h2 className="reveal text-4xl md:text-5xl font-bold text-slate-900 mb-6 stagger-1">
+          <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 stagger-1">
             What is{" "}
             <span className="relative inline-block">
               <span className="gradient-text">HivarSoft?</span>
@@ -86,7 +86,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
           {/* Left */}
           <div>
             <div className="reveal reveal-left stagger-1 mb-8">

@@ -12,7 +12,7 @@ export default function Contributing() {
   const ref = useReveal();
 
   return (
-    <section className="py-28 bg-slate-950 relative overflow-hidden">
+    <section className="py-16 md:py-28 bg-slate-950 relative overflow-hidden">
       {/* Animated SVG background — large circuit ring */}
       <svg
         aria-hidden="true"
@@ -78,7 +78,7 @@ export default function Contributing() {
           style={{ strokeDasharray: "30 1570", animation: "flow 4s linear infinite" }} />
       </svg>
 
-      <div ref={ref} className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+      <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
       {/* Animated ring container */}
       <div className="relative z-10 text-center mb-8">
         <div
@@ -101,16 +101,16 @@ export default function Contributing() {
         <p className="reveal text-sm font-semibold uppercase tracking-widest text-purple-400 mb-3 stagger-1">
           Open Source & Commercial
         </p>
-        <h2 className="reveal text-4xl md:text-5xl font-bold text-white mb-6 stagger-2">
+        <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 stagger-2">
           Two Ways We <span className="gradient-text">Build</span>
         </h2>
-        <p className="reveal text-lg text-slate-400 max-w-2xl mx-auto mb-12 stagger-3">
+        <p className="reveal text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-8 sm:mb-12 stagger-3">
           We ship <strong className="text-white">proprietary SaaS products</strong> with pricing that makes sense,
           and we give back with <strong className="text-white">open source tools</strong> the community can use, adapt, and contribute to.
         </p>
 
         {/* Two-column split */}
-        <div className="reveal stagger-4 grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto mb-12 text-left">
+        <div className="reveal stagger-4 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 max-w-3xl mx-auto mb-8 sm:mb-12 text-left">
           <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-purple-500 transition-all card-glow">
             <div className="text-3xl mb-3" style={{ animation: "float 3.5s ease-in-out infinite" }}>🚀</div>
             <h3 className="font-bold text-white text-lg mb-2">Commercial Products</h3>
@@ -127,7 +127,7 @@ export default function Contributing() {
           </div>
         </div>
 
-        <div className="reveal flex flex-wrap justify-center gap-4 mb-12 stagger-5">
+        <div className="reveal flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 stagger-5">
           {ways.map((w) => (
             <div key={w.text}
               className="group flex items-center gap-3 bg-slate-900 border border-slate-700 hover:border-purple-500 rounded-xl px-5 py-3.5 transition-all hover:-translate-y-1 card-glow"

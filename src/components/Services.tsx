@@ -33,7 +33,7 @@ const techStack = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-28 bg-slate-950 relative overflow-hidden">
+    <section id="services" className="py-16 md:py-28 bg-slate-950 relative overflow-hidden">
       {/* Corner SVG accents */}
       <svg aria-hidden="true" className="absolute inset-0 w-full h-full pointer-events-none opacity-25" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -51,18 +51,18 @@ export default function Services() {
           style={{ strokeDasharray: "20 300" }} className="line-flow" filter="url(#svc-glow)"/>
       </svg>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <p className="reveal text-sm font-semibold uppercase tracking-widest text-purple-400 mb-3">What We Do</p>
-          <h2 className="reveal text-4xl md:text-5xl font-bold text-white stagger-1">
+          <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-white stagger-1">
             Our <span className="gradient-text">Services</span>
           </h2>
-          <p className="reveal text-slate-400 mt-4 max-w-xl mx-auto stagger-2">From concept to deployment — we cover the full stack.</p>
+          <p className="reveal text-slate-400 mt-4 max-w-xl mx-auto stagger-2 text-sm sm:text-base">From concept to deployment — we cover the full stack.</p>
         </div>
 
         {/* Service cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-16 md:mb-20">
           {services.map((s, i) => (
             <div key={s.title}
               className={`reveal stagger-${i+1} group bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-slate-600 transition-all card-glow hover:shadow-xl ${s.glow}`}>

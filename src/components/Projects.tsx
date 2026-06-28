@@ -36,22 +36,22 @@ export default function Projects() {
   const ref = useReveal();
 
   return (
-    <section id="projects" className="py-28 bg-white relative overflow-hidden">
+    <section id="projects" className="py-16 md:py-28 bg-white relative overflow-hidden">
       {/* Subtle background pattern */}
       <div aria-hidden="true" className="absolute inset-0 pointer-events-none"
         style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)", backgroundSize: "40px 40px" }}
       />
 
-      <div ref={ref} className="max-w-6xl mx-auto px-6 relative z-10">
+      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <p className="reveal text-sm font-semibold uppercase tracking-widest text-purple-600 mb-3">
             Our Products
           </p>
-          <h2 className="reveal text-4xl md:text-5xl font-bold text-slate-900 stagger-1">
+          <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 stagger-1">
             What We&apos;ve <span className="gradient-text">Built</span>
           </h2>
-          <p className="reveal text-slate-500 mt-4 text-lg max-w-2xl mx-auto stagger-2">
+          <p className="reveal text-slate-500 mt-4 text-base sm:text-lg max-w-2xl mx-auto stagger-2">
             Real tools, used by real people.
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function Projects() {
         {/* ── Notes AI ── */}
         <div className="reveal mb-10 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/10 border border-purple-100">
           {/* Header bar */}
-          <div className="relative overflow-hidden bg-[#2d1b69] px-8 py-10">
+          <div className="relative overflow-hidden bg-[#2d1b69] px-4 sm:px-8 py-6 sm:py-10">
             {/* SVG decorative lines inside card */}
             <svg aria-hidden="true" className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice">
               <defs>
@@ -72,11 +72,11 @@ export default function Projects() {
                   style={{ animation: `twinkle 2s ease-in-out ${i*0.4}s infinite` }} />
               ))}
             </svg>
-            <div className="relative z-10 flex items-start justify-between flex-wrap gap-4">
-              <div>
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="flex-1 min-w-0">
                 <div className="text-xs font-bold uppercase tracking-widest text-purple-300 mb-2">Project 01</div>
-                <h3 className="text-3xl font-bold text-white mb-3">Notes AI</h3>
-                <p className="text-purple-200 text-base max-w-xl leading-relaxed">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Notes AI</h3>
+                <p className="text-purple-200 text-sm sm:text-base leading-relaxed">
                   Capture ideas, draw your thoughts, and stay organised. Rich text, infinite
                   canvas sketching, smart folders, and an AI assistant — all in one place.
                 </p>
@@ -85,14 +85,14 @@ export default function Projects() {
                 href="https://notes-ai.hivarsoft.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-purple-700 font-semibold px-5 py-2.5 rounded-xl hover:bg-purple-50 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap self-start"
+                className="inline-flex items-center gap-2 bg-white text-purple-700 font-semibold px-4 sm:px-5 py-2.5 rounded-xl hover:bg-purple-50 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap self-start shrink-0"
               >
                 Launch App →
               </a>
             </div>
           </div>
           {/* Feature grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 bg-[#1e1035]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 bg-[#1e1035]">
             {notesFeatures.map((f, i) => <FeatureCard key={f.title} {...f} delay={i * 60} />)}
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function Projects() {
         {/* ── GitStats ── */}
         <div className="reveal stagger-2 rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200">
           {/* Header bar */}
-          <div className="relative overflow-hidden bg-[#0f172a] px-8 py-10">
+          <div className="relative overflow-hidden bg-[#0f172a] px-4 sm:px-8 py-6 sm:py-10">
             <svg aria-hidden="true" className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice">
               <defs>
                 <filter id="git-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -111,18 +111,17 @@ export default function Projects() {
                 <circle key={i} cx={x} cy={i===0?50:i===1?90:i===2?30:70} r="3.5" fill="#38bdf8" fillOpacity="0.7" filter="url(#git-glow)"
                   style={{ animation: `twinkle 2.5s ease-in-out ${i*0.3}s infinite` }} />
               ))}
-              {/* Commit graph dots */}
               {[0,1,2,3,4,5,6].map(w=>[0,1,2,3].map(d=>(
                 <rect key={`${w}-${d}`} x={650+w*18} y={20+d*30} width="10" height="10" rx="2"
                   fill="#22c55e" fillOpacity={Math.random()>0.5?0.6:0.1}
                   style={{ animation: `twinkle ${2+Math.random()}s ease-in-out ${(w*4+d)*0.1}s infinite` }} />
               )))}
             </svg>
-            <div className="relative z-10 flex items-start justify-between flex-wrap gap-4">
-              <div>
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="flex-1 min-w-0">
                 <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Project 02</div>
-                <h3 className="text-3xl font-bold text-white mb-3">GitStats</h3>
-                <p className="text-slate-300 text-base max-w-xl leading-relaxed">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">GitStats</h3>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                   Turn your Git history into team intelligence. Upload any repo — or import from
                   GitHub, GitLab, or Bitbucket — and get instant engineering metrics.
                 </p>
@@ -131,14 +130,14 @@ export default function Projects() {
                 href="https://gitstats.hivarsoft.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-slate-800 font-semibold px-5 py-2.5 rounded-xl hover:bg-slate-100 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap self-start"
+                className="inline-flex items-center gap-2 bg-white text-slate-800 font-semibold px-4 sm:px-5 py-2.5 rounded-xl hover:bg-slate-100 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap self-start shrink-0"
               >
                 Launch App →
               </a>
             </div>
           </div>
           {/* Feature grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 bg-[#0a0f1e]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 bg-[#0a0f1e]">
             {gitStatsFeatures.map((f, i) => <FeatureCard key={f.title} {...f} delay={i * 50} />)}
           </div>
         </div>

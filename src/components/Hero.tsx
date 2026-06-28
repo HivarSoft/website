@@ -136,7 +136,7 @@ export default function Hero() {
       </div>
 
       {/* ── Content ── */}
-      <div className="relative w-full max-w-6xl mx-auto px-6 py-16 flex flex-col items-center text-center gap-6 z-10">
+      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col items-center text-center gap-5 sm:gap-6 z-10">
 
         {/* Logo with pulse glow */}
         <div
@@ -148,7 +148,7 @@ export default function Hero() {
 
         {/* Shimmer badge */}
         <div
-          className="shimmer inline-flex items-center gap-2 border border-purple-400/30 rounded-full px-5 py-2 text-sm text-purple-200"
+          className="shimmer inline-flex items-center gap-2 border border-purple-400/30 rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm text-purple-200 text-center max-w-xs sm:max-w-none"
           style={{ animation: "fade-up 0.6s ease 0.15s both" }}
         >
           <span className="w-2 h-2 rounded-full bg-purple-400 inline-block"
@@ -158,7 +158,7 @@ export default function Hero() {
 
         {/* Headline */}
         <h1
-          className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight max-w-4xl"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-tight max-w-4xl"
           style={{ animation: "fade-up 0.7s ease 0.25s both" }}
         >
           Building{" "}
@@ -169,7 +169,7 @@ export default function Hero() {
 
         {/* Sub */}
         <p
-          className="text-xl text-slate-300 max-w-2xl leading-relaxed"
+          className="text-base sm:text-xl text-slate-300 max-w-2xl leading-relaxed px-2"
           style={{ animation: "fade-up 0.7s ease 0.4s both" }}
         >
           From proprietary SaaS products to open source tools —
@@ -178,7 +178,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-4 mt-2"
+          className="flex flex-col sm:flex-row gap-3 mt-2 w-full sm:w-auto px-4 sm:px-0"
           style={{ animation: "fade-up 0.7s ease 0.55s both" }}
         >
           <a
