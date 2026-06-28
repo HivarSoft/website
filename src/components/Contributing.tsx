@@ -99,18 +99,35 @@ export default function Contributing() {
       </div>
 
         <p className="reveal text-sm font-semibold uppercase tracking-widest text-purple-400 mb-3 stagger-1">
-          Open Source
+          Open Source & Commercial
         </p>
         <h2 className="reveal text-4xl md:text-5xl font-bold text-white mb-6 stagger-2">
-          Built with the <span className="gradient-text">Community</span>
+          Two Ways We <span className="gradient-text">Build</span>
         </h2>
         <p className="reveal text-lg text-slate-400 max-w-2xl mx-auto mb-12 stagger-3">
-          We welcome contributions from developers around the world. Many of our
-          tools and projects are open source — learn from them, adapt them, build
-          upon them.
+          We ship <strong className="text-white">proprietary SaaS products</strong> with pricing that makes sense,
+          and we give back with <strong className="text-white">open source tools</strong> the community can use, adapt, and contribute to.
         </p>
 
-        <div className="reveal flex flex-wrap justify-center gap-4 mb-12 stagger-4">
+        {/* Two-column split */}
+        <div className="reveal stagger-4 grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto mb-12 text-left">
+          <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-purple-500 transition-all card-glow">
+            <div className="text-3xl mb-3" style={{ animation: "float 3.5s ease-in-out infinite" }}>🚀</div>
+            <h3 className="font-bold text-white text-lg mb-2">Commercial Products</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Polished SaaS applications with fair, transparent pricing. No bloat, no enterprise lock-in — just software that works.
+            </p>
+          </div>
+          <div className="bg-slate-900 border border-slate-700 rounded-2xl p-6 hover:border-purple-500 transition-all card-glow">
+            <div className="text-3xl mb-3" style={{ animation: "float 4s ease-in-out 0.5s infinite" }}>🌐</div>
+            <h3 className="font-bold text-white text-lg mb-2">Open Source</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Developer tools and utilities released freely. Learn from the code, fork it, contribute back — the community makes it better.
+            </p>
+          </div>
+        </div>
+
+        <div className="reveal flex flex-wrap justify-center gap-4 mb-12 stagger-5">
           {ways.map((w) => (
             <div key={w.text}
               className="group flex items-center gap-3 bg-slate-900 border border-slate-700 hover:border-purple-500 rounded-xl px-5 py-3.5 transition-all hover:-translate-y-1 card-glow"
@@ -123,11 +140,11 @@ export default function Contributing() {
           ))}
         </div>
 
-        <p className="reveal text-slate-500 mb-8 stagger-5">
-          Your contributions help make software better for everyone.
+        <p className="reveal text-slate-500 mb-8 stagger-6">
+          Want to contribute to our open source projects?
         </p>
 
-        <div className="reveal stagger-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="reveal stagger-7 flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="https://github.com/HivarSoft"
             target="_blank"

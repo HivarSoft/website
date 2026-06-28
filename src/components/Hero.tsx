@@ -153,7 +153,7 @@ export default function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-purple-400 inline-block"
             style={{ animation: "pulse-glow 2s ease-in-out infinite" }} />
-          Open Source &bull; Innovation &bull; Simplicity &bull; Community
+          Software Products &bull; Open Source &bull; Innovation &bull; Community
         </div>
 
         {/* Headline */}
@@ -162,10 +162,9 @@ export default function Hero() {
           style={{ animation: "fade-up 0.7s ease 0.25s both" }}
         >
           Building{" "}
-          <span className="gradient-text">Affordable</span>
-          {" "}&amp;{" "}
-          <span className="gradient-text">Open Source</span>
-          <br />Software for Everyone
+          <span className="gradient-text">Modern Software</span>
+          <br />That{" "}
+          <span className="gradient-text">Actually Works</span>
         </h1>
 
         {/* Sub */}
@@ -173,8 +172,8 @@ export default function Hero() {
           className="text-xl text-slate-300 max-w-2xl leading-relaxed"
           style={{ animation: "fade-up 0.7s ease 0.4s both" }}
         >
-          We believe powerful software should be accessible, transparent, and
-          affordable — for everyone.
+          From proprietary SaaS products to open source tools —
+          we build software that solves real problems, at prices that make sense.
         </p>
 
         {/* CTAs */}

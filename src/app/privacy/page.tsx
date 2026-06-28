@@ -224,7 +224,7 @@ export default function PrivacyPolicy() {
                 "Lodge a complaint with a data protection authority.",
               ].map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="text-purple-500 mt-1 shrink-0">•</span>
+                  <span className="text-purple-500 mt-0 shrink-0">•</span>
                   <span>{item}</span>
                 </li>
               ))}

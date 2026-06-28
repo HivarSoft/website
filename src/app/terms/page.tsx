@@ -192,7 +192,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3">6. Intellectual Property</h2>
             <p className="text-slate-600 leading-relaxed">
-              All content, trademarks, logos, and software comprising our services are the property of
+              All content, trademarks, logos, and software comprising our services are the property of {" "}
               {COMPANY} or its licensors. Many of our projects are open source and governed by their
               respective open source licenses available on our{" "}
               <a href="https://github.com/HivarSoft" target="_blank" rel="noopener noreferrer"

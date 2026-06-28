@@ -2,11 +2,12 @@
 import { useEffect, useRef, useState } from "react";
 
 const values = [
-  { icon: "✅", label: "Affordable Solutions",         color: "from-green-500 to-emerald-500" },
-  { icon: "🌐", label: "Open Source Innovation",       color: "from-blue-500 to-cyan-500" },
-  { icon: "⚙️", label: "Modern Technologies",          color: "from-purple-500 to-violet-500" },
-  { icon: "🛡️", label: "Reliable Support",             color: "from-orange-500 to-amber-500" },
-  { icon: "🤝", label: "Community-Driven Development", color: "from-pink-500 to-rose-500" },
+  { icon: "🚀", label: "SaaS & Proprietary Products",   color: "from-purple-500 to-violet-600" },
+  { icon: "🌐", label: "Open Source Contributions",      color: "from-blue-500 to-cyan-500" },
+  { icon: "⚙️", label: "Modern Tech Stack",              color: "from-slate-500 to-slate-700" },
+  { icon: "💰", label: "Pricing That Makes Sense",       color: "from-green-500 to-emerald-500" },
+  { icon: "🛡️", label: "Reliable & Scalable",            color: "from-orange-500 to-amber-500" },
+  { icon: "🤝", label: "Community-Driven Innovation",    color: "from-pink-500 to-rose-500" },
 ];
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -81,7 +82,7 @@ export default function About() {
             </span>
           </h2>
           <p className="reveal text-lg text-slate-600 leading-relaxed stagger-2">
-            HivarSoft is a software company focused on creating modern, scalable, and affordable software solutions for businesses, startups, and individuals.
+            HivarSoft is a software company building modern, scalable products — both commercial SaaS platforms and open source tools — for businesses, startups, and developers.
           </p>
         </div>
 
@@ -92,9 +93,11 @@ export default function About() {
               <div className="inline-flex items-center gap-2 bg-purple-50 text-purple-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
                 Our Mission
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">High-quality software, without enterprise-level costs</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Great software, built to last</h3>
               <p className="text-slate-600 leading-relaxed mb-6">
-                We build products, tools, and services that empower developers, businesses, and communities through open-source technology. No gatekeeping, no overpriced licenses.
+                We ship proprietary SaaS products with fair, transparent pricing — and we give back
+                to the developer community with open source tools. Not every product needs to be free,
+                but every product should be worth what you pay for it.
               </p>
               <a href="https://github.com/HivarSoft" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:text-purple-800 transition-colors group">
@@ -107,12 +110,12 @@ export default function About() {
             <div className="reveal reveal-left stagger-2 flex flex-wrap gap-4">
               {[
                 { target: 2,   suffix: "+",  label: "Live Products" },
-                { target: 100, suffix: "%",  label: "Open Source" },
+                { target: 0,   suffix: "",   label: "Open Source Repos", isInfinity: true, symbol: "OSS" },
                 { target: 0,   suffix: "∞",  label: "Community",    isInfinity: true },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center bg-slate-50 border border-slate-100 rounded-2xl px-6 py-4 card-glow">
                   <span className="text-2xl font-extrabold gradient-text">
-                    {s.isInfinity ? "∞" : <AnimatedCounter target={s.target} suffix={s.suffix} />}
+                    {s.isInfinity ? (s.symbol ?? "∞") : <AnimatedCounter target={s.target} suffix={s.suffix} />}
                   </span>
                   <span className="text-xs text-slate-500 font-medium mt-0.5">{s.label}</span>
                 </div>
