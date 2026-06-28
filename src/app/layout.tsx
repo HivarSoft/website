@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import ScrollObserver from "@/components/ScrollObserver";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,7 +72,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} antialiased`}>
-      <body className="min-h-screen bg-white text-slate-900 font-sans">
+      <body className="min-h-screen bg-[#050816] text-slate-900 font-sans">
+        <ScrollObserver />
         {children}
       </body>
     </html>
