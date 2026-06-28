@@ -1,264 +1,136 @@
-import Image from "next/image";
-
-/* Floating particle positions — deterministic, no random */
-const PARTICLES = [
-  { x: "15%", y: "20%", size: 4, dur: "6s",  delay: "0s",   color: "#a78bfa" },
-  { x: "80%", y: "15%", size: 3, dur: "8s",  delay: "1s",   color: "#ec4899" },
-  { x: "70%", y: "70%", size: 5, dur: "7s",  delay: "2s",   color: "#a78bfa" },
-  { x: "25%", y: "75%", size: 3, dur: "9s",  delay: "0.5s", color: "#f97316" },
-  { x: "50%", y: "10%", size: 4, dur: "5s",  delay: "1.5s", color: "#ec4899" },
-  { x: "90%", y: "50%", size: 3, dur: "10s", delay: "3s",   color: "#a78bfa" },
-  { x: "10%", y: "50%", size: 2, dur: "7s",  delay: "2.5s", color: "#f97316" },
-  { x: "60%", y: "85%", size: 3, dur: "6s",  delay: "4s",   color: "#ec4899" },
-  { x: "40%", y: "30%", size: 2, dur: "8s",  delay: "1s",   color: "#a78bfa" },
-  { x: "85%", y: "80%", size: 4, dur: "9s",  delay: "0s",   color: "#f97316" },
-];
+import Image from "next/image"; 
 
 export default function Hero() {
   return (
     <section
-      className="relative overflow-hidden bg-[#050816] text-white flex flex-col items-center justify-between"
-      style={{ minHeight: "calc(100dvh - 52px)" }}
+      className="relative overflow-hidden bg-zinc-950 text-white"
+      style={{ minHeight: "calc(100dvh - 64px)" }}
     >
-      {/* ── Animated SVG circuit background ── */}
-      <svg
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1400 700"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <radialGradient id="rg1" cx="20%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#7c3aed" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="rg2" cx="80%" cy="20%" r="40%">
-            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="rg3" cx="60%" cy="80%" r="35%">
-            <stop offset="0%" stopColor="#ec4899" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="transparent" stopOpacity="0" />
-          </radialGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-          </filter>
-          <filter id="glow-strong">
-            <feGaussianBlur stdDeviation="5" result="blur" />
-            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-          </filter>
 
-          {/* Named paths so animateMotion can reference them */}
-          <path id="p1" d="M -50 300 L 200 300 L 260 240 L 600 240 L 660 300 L 900 300 L 960 360 L 1450 360" />
-          <path id="p2" d="M -50 100 L 350 100 L 410 160 L 700 160 L 760 100 L 1150 100 L 1450 100" />
-          <path id="p3" d="M -50 500 L 150 500 L 210 560 L 500 560 L 560 500 L 850 500 L 910 440 L 1450 440" />
-          <path id="p4" d="M 800 -10 L 900 150 L 900 360 L 1000 460 L 1200 460 L 1300 360 L 1450 360" />
-          <path id="p5" d="M -50 650 L 200 600 L 400 620 L 700 580 L 1000 620 L 1200 600 L 1450 640" />
-        </defs>
-
-        {/* Gradient orbs */}
-        <rect width="100%" height="100%" fill="url(#rg1)" />
-        <rect width="100%" height="100%" fill="url(#rg2)" />
-        <rect width="100%" height="100%" fill="url(#rg3)" />
-
-        {/* ── Static circuit lines drawn on load ── */}
-        <use href="#p1" fill="none" stroke="#7c3aed" strokeWidth="1.5" strokeOpacity="0.55" filter="url(#glow)" className="line-draw" />
-        <use href="#p2" fill="none" stroke="#a855f7" strokeWidth="1"   strokeOpacity="0.45" filter="url(#glow)" className="line-draw-2" />
-        <use href="#p3" fill="none" stroke="#6d28d9" strokeWidth="1"   strokeOpacity="0.4"  className="line-draw-3" />
-        <use href="#p4" fill="none" stroke="#8b5cf6" strokeWidth="1.5" strokeOpacity="0.45" filter="url(#glow)" className="line-draw-2" />
-        <use href="#p5" fill="none" stroke="#4f46e5" strokeWidth="1"   strokeOpacity="0.3"  className="line-draw-3" />
-
-        {/* ── Glowing pulses that travel exactly along each path ── */}
-        {/* Pulse on p1 */}
-        <circle r="4" fill="#c4b5fd" filter="url(#glow-strong)" opacity="0.9">
-          <animateMotion dur="5s" repeatCount="indefinite" begin="0s">
-            <mpath href="#p1" />
-          </animateMotion>
-        </circle>
-        <circle r="2.5" fill="#e879f9" filter="url(#glow)" opacity="0.7">
-          <animateMotion dur="5s" repeatCount="indefinite" begin="2.5s">
-            <mpath href="#p1" />
-          </animateMotion>
-        </circle>
-
-        {/* Pulse on p2 */}
-        <circle r="3.5" fill="#e879f9" filter="url(#glow-strong)" opacity="0.85">
-          <animateMotion dur="6s" repeatCount="indefinite" begin="1s">
-            <mpath href="#p2" />
-          </animateMotion>
-        </circle>
-        <circle r="2" fill="#a78bfa" filter="url(#glow)" opacity="0.6">
-          <animateMotion dur="6s" repeatCount="indefinite" begin="4s">
-            <mpath href="#p2" />
-          </animateMotion>
-        </circle>
-
-        {/* Pulse on p3 */}
-        <circle r="3" fill="#818cf8" filter="url(#glow-strong)" opacity="0.8">
-          <animateMotion dur="7s" repeatCount="indefinite" begin="0.5s">
-            <mpath href="#p3" />
-          </animateMotion>
-        </circle>
-        <circle r="2" fill="#c4b5fd" filter="url(#glow)" opacity="0.6">
-          <animateMotion dur="7s" repeatCount="indefinite" begin="3.5s">
-            <mpath href="#p3" />
-          </animateMotion>
-        </circle>
-
-        {/* Pulse on p4 */}
-        <circle r="3" fill="#a78bfa" filter="url(#glow-strong)" opacity="0.75">
-          <animateMotion dur="5.5s" repeatCount="indefinite" begin="2s">
-            <mpath href="#p4" />
-          </animateMotion>
-        </circle>
-
-        {/* Pulse on p5 */}
-        <circle r="2.5" fill="#6366f1" filter="url(#glow)" opacity="0.65">
-          <animateMotion dur="8s" repeatCount="indefinite" begin="1.5s">
-            <mpath href="#p5" />
-          </animateMotion>
-        </circle>
-
-        {/* ── Junction nodes — twinkling ── */}
-        {([
-          [200,300],[260,240],[600,240],[660,300],[900,300],[960,360],
-          [350,100],[410,160],[700,160],[760,100],
-          [150,500],[210,560],[500,560],[560,500],[850,500],[910,440],
-        ] as [number,number][]).map(([cx,cy],i) => (
-          <circle key={i} cx={cx} cy={cy} r="3" fill="#a78bfa" fillOpacity="0.8" filter="url(#glow)"
-            style={{ animation: `twinkle ${1.8+(i%4)*0.5}s ease-in-out ${i*0.18}s infinite` }} />
-        ))}
-
-        {/* ── Dot grid ── */}
-        {Array.from({length:10}).map((_,row) =>
-          Array.from({length:18}).map((_,col) => (
-            <circle key={`${row}-${col}`} cx={col*80+40} cy={row*70+35} r="1" fill="#6d28d9" fillOpacity="0.15" />
-          ))
-        )}
-
-        {/* ── Hexagon accent top-right ── */}
-        <g opacity="0.08" transform="translate(1050,30)">
-          {([0,1,2,3] as number[]).map(row=>([0,1,2] as number[]).map(col=>{
-            const x=col*52+(row%2)*26, y=row*45;
-            return <polygon key={`${row}-${col}`}
-              points={`${x},${y+15} ${x+26},${y} ${x+52},${y+15} ${x+52},${y+45} ${x+26},${y+60} ${x},${y+45}`}
-              fill="none" stroke="#a78bfa" strokeWidth="1" />;
-          }))}
-        </g>
-      </svg>
-
-      {/* ── Floating particles ── */}
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
-        {PARTICLES.map((p, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: p.x,
-              top: p.y,
-              width: p.size * 2,
-              height: p.size * 2,
-              backgroundColor: p.color,
-              boxShadow: `0 0 ${p.size * 3}px ${p.color}`,
-              animation: `particle-${(i % 3) + 1} ${p.dur} ease-in-out ${p.delay} infinite`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* ── Orbiting rings around logo ── */}
+      {/* Dot grid on top of aurora */}
       <div
         aria-hidden="true"
-        className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-        style={{ top: "calc(50% - 140px)" }}
-      >
-        {/* Outer ring */}
-        <div className="absolute w-48 h-48 -translate-x-1/2 -translate-y-1/2 rounded-full border border-purple-500/20"
-          style={{ animation: "pulse-ring 3s ease-out infinite" }} />
-        <div className="absolute w-36 h-36 -translate-x-1/2 -translate-y-1/2 rounded-full border border-purple-400/15"
-          style={{ animation: "pulse-ring 3s ease-out 1.5s infinite" }} />
-      </div>
+        className="dot-grid-dark absolute inset-0 pointer-events-none opacity-60"
+      />
 
-      {/* ── Content — grows to fill space ── */}
-      <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 flex-1 flex flex-col items-center justify-center text-center gap-4 sm:gap-6 z-10">
+      {/* Top border line */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, rgba(139,92,246,0.4) 30%, rgba(139,92,246,0.4) 70%, transparent 100%)",
+        }}
+      />
 
-        {/* Logo with pulse glow */}
-        <div
-          className="rounded-2xl p-1"
-          style={{ animation: "pulse-glow 3s ease-in-out infinite, fade-up 0.6s ease forwards" }}
-        >
-          <Image src="/Logo.png" alt="HivarSoft" width={56} height={56} className="rounded-xl sm:w-[72px] sm:h-[72px]" priority />
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 pt-16 pb-16 sm:pt-28 sm:pb-24 flex flex-col items-center text-center gap-5 sm:gap-6">
+
+        {/* Logo */}
+        <div style={{ animation: "fade-up 0.5s ease forwards" }}>
+          <div className="inline-flex p-2.5 rounded-2xl bg-white/8 border border-white/12">
+            <Image
+              src="/Logo.png"
+              alt="HivarSoft"
+              width={44}
+              height={44}
+              className="rounded-xl"
+              priority
+            />
+          </div>
         </div>
 
-        {/* Shimmer badge */}
+        {/* Badge — wraps gracefully on small screens */}
         <div
-          className="shimmer inline-flex items-center gap-2 border border-purple-400/30 rounded-full px-3 sm:px-5 py-1.5 sm:py-2 text-[11px] sm:text-sm text-purple-200 text-center"
-          style={{ animation: "fade-up 0.6s ease 0.15s both" }}
+          className="shimmer-badge inline-flex items-center gap-2 border border-violet-400/25 rounded-full px-3.5 py-1.5 text-[11px] sm:text-xs font-medium text-violet-300 max-w-[90vw] text-center leading-snug"
+          style={{ animation: "fade-up 0.5s ease 0.1s both" }}
         >
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-400 inline-block shrink-0"
-            style={{ animation: "pulse-glow 2s ease-in-out infinite" }} />
-          <span>Software Products &bull; Open Source &bull; Innovation &bull; Community</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0" aria-hidden="true" />
+          <span>Software Products · Open Source · Built to Last</span>
         </div>
 
         {/* Headline */}
         <h1
-          className="text-[2rem] sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.15] max-w-4xl"
-          style={{ animation: "fade-up 0.7s ease 0.25s both" }}
+          className="text-[2rem] sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] w-full"
+          style={{ animation: "fade-up 0.55s ease 0.18s both" }}
         >
-          Building{" "}
-          <span className="gradient-text">Modern Software</span>
-          <span className="hidden sm:inline"><br /></span>
-          <span className="sm:hidden"> </span>
-          That{" "}
-          <span className="gradient-text">Actually Works</span>
+          Building software
+          <br />
+          <span className="gradient-text">that actually works.</span>
         </h1>
 
-        {/* Sub */}
+        {/* Subheading */}
         <p
-          className="text-sm sm:text-xl text-slate-300 max-w-2xl leading-relaxed"
-          style={{ animation: "fade-up 0.7s ease 0.4s both" }}
+          className="text-[15px] sm:text-lg text-zinc-400 max-w-md sm:max-w-xl leading-relaxed"
+          style={{ animation: "fade-up 0.55s ease 0.26s both" }}
         >
-          From proprietary SaaS products to open source tools —
-          we build software that solves real problems, at prices that make sense.
+          From proprietary SaaS to open source tools — we ship software that
+          solves real problems, at prices that make sense.
         </p>
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
-          style={{ animation: "fade-up 0.7s ease 0.55s both" }}
+          className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto pt-1"
+          style={{ animation: "fade-up 0.55s ease 0.34s both" }}
         >
           <a
             href="#projects"
-            className="group relative inline-flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold px-7 py-3 sm:py-3.5 rounded-xl transition-all shadow-lg hover:shadow-purple-500/40 hover:shadow-xl hover:-translate-y-1 text-sm sm:text-base"
+            className="inline-flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 text-white font-semibold px-7 py-3 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/30 text-[15px]"
           >
-            🚀 View Projects
-            <span className="absolute inset-0 rounded-xl ring-0 group-hover:ring-2 ring-purple-400/50 transition-all" />
+            View Products
           </a>
           <a
             href="https://github.com/HivarSoft"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-white/8 hover:bg-white/15 border border-white/20 hover:border-white/40 text-white font-semibold px-7 py-3 sm:py-3.5 rounded-xl transition-all hover:-translate-y-1 text-sm sm:text-base"
+            className="inline-flex items-center justify-center gap-2 bg-white/6 hover:bg-white/12 border border-white/14 hover:border-white/28 text-white font-semibold px-7 py-3 rounded-xl transition-all hover:-translate-y-0.5 text-[15px]"
           >
-            ⭐ Star on GitHub
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+            Star on GitHub
           </a>
         </div>
+
+        {/* Stats strip */}
+        {/* <div
+          className="pt-4 sm:pt-6 flex flex-col items-center gap-3"
+          style={{ animation: "fade-in 0.6s ease 0.7s both" }}
+        >
+          <p className="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-widest font-medium">
+            Trusted by developers worldwide
+          </p>
+          <div className="flex items-center gap-8 sm:gap-10">
+            {[
+              { label: "2+",  sub: "Live Products" },
+              { label: "OSS", sub: "Open Source"   },
+              { label: "∞",   sub: "Community"     },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <div className="text-lg sm:text-xl font-bold text-white">{s.label}</div>
+                <div className="text-[10px] sm:text-[11px] text-zinc-500 font-medium mt-0.5">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div> */}
       </div>
 
-      {/* Scroll indicator — hidden on mobile where content fills the viewport */}
+      {/* Bottom fade */}
       <div
-        className="hidden sm:flex relative z-10 flex-col items-center gap-1.5 text-slate-500 text-xs pb-5"
-        style={{ animation: "fade-in 1s ease 1.4s both" }}
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, transparent, rgba(9,9,11,0.6))" }}
+      />
+
+      {/* Scroll indicator — desktop only */}
+      <div
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 text-zinc-600"
+        style={{ animation: "fade-in 0.6s ease 1.2s both" }}
       >
-        <span className="tracking-widest uppercase text-[9px] sm:text-[10px] pb-2">Scroll</span>
-        <svg width="16" height="24" viewBox="0 0 20 28" fill="none" aria-hidden="true"
-          className="sm:w-5 sm:h-7"
-          style={{ animation: "float 2s ease-in-out infinite" }}>
-          <rect x="1" y="1" width="18" height="26" rx="9" stroke="#6d28d9" strokeWidth="1.5" strokeOpacity="0.5"/>
-          <rect x="9" y="5" width="2" height="6" rx="1" fill="#a78bfa"
-            style={{ animation: "float 2s ease-in-out infinite" }}/>
+        <svg width="20" height="28" viewBox="0 0 20 28" fill="none" aria-hidden="true" className="opacity-50">
+          <rect x="1" y="1" width="18" height="26" rx="9" stroke="currentColor" strokeWidth="1.5" />
+          <rect x="9" y="5" width="2" height="6" rx="1" fill="currentColor"
+            style={{ animation: "float 1.8s ease-in-out infinite" }} />
         </svg>
       </div>
     </section>

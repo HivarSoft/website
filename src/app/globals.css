@@ -21,44 +21,43 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ─── Scroll reveal ─────────────────────────────────────────────────────────── */
+/* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.revealed { opacity: 1; transform: translateY(0); }
 
 .reveal-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-32px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal-left.revealed { opacity: 1; transform: translateX(0); }
 
 .reveal-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(32px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal-right.revealed { opacity: 1; transform: translateX(0); }
 
-/* Stagger delays */
 .stagger-1  { transition-delay: 0.05s; }
-.stagger-2  { transition-delay: 0.12s; }
-.stagger-3  { transition-delay: 0.19s; }
-.stagger-4  { transition-delay: 0.26s; }
-.stagger-5  { transition-delay: 0.33s; }
-.stagger-6  { transition-delay: 0.40s; }
-.stagger-7  { transition-delay: 0.47s; }
-.stagger-8  { transition-delay: 0.54s; }
+.stagger-2  { transition-delay: 0.10s; }
+.stagger-3  { transition-delay: 0.15s; }
+.stagger-4  { transition-delay: 0.20s; }
+.stagger-5  { transition-delay: 0.25s; }
+.stagger-6  { transition-delay: 0.30s; }
+.stagger-7  { transition-delay: 0.35s; }
+.stagger-8  { transition-delay: 0.40s; }
 
-/* ─── Hero entrance ─────────────────────────────────────────────────────────── */
+/* ── Hero entrance ── */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(28px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fade-in {
@@ -66,134 +65,71 @@ html {
   to   { opacity: 1; }
 }
 
-/* ─── Continuous floating ───────────────────────────────────────────────────── */
+/* ── Subtle float ── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-12px); }
-}
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33%       { transform: translateY(-8px) rotate(2deg); }
-  66%       { transform: translateY(-4px) rotate(-1deg); }
-}
-@keyframes float-x {
-  0%, 100% { transform: translateX(0px); }
-  50%       { transform: translateX(10px); }
+  50%       { transform: translateY(-6px); }
 }
 
-/* ─── Pulse glow ────────────────────────────────────────────────────────────── */
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 15px 0px rgba(139, 92, 246, 0.35); }
-  50%       { box-shadow: 0 0 35px 6px rgba(139, 92, 246, 0.65); }
-}
-@keyframes pulse-ring {
-  0%   { transform: scale(1);   opacity: 0.6; }
-  100% { transform: scale(1.8); opacity: 0; }
-}
-
-/* ─── Particle drift ────────────────────────────────────────────────────────── */
-@keyframes particle-1 {
-  0%   { transform: translate(0, 0)    scale(1);   opacity: 0.7; }
-  25%  { transform: translate(30px, -40px) scale(1.2); opacity: 1; }
-  50%  { transform: translate(60px, -10px) scale(0.9); opacity: 0.6; }
-  75%  { transform: translate(20px, -60px) scale(1.1); opacity: 0.9; }
-  100% { transform: translate(0, 0)    scale(1);   opacity: 0.7; }
-}
-@keyframes particle-2 {
-  0%   { transform: translate(0, 0)     scale(1);   opacity: 0.5; }
-  33%  { transform: translate(-40px, -30px) scale(1.3); opacity: 0.8; }
-  66%  { transform: translate(-20px, -55px) scale(0.8); opacity: 0.6; }
-  100% { transform: translate(0, 0)     scale(1);   opacity: 0.5; }
-}
-@keyframes particle-3 {
-  0%   { transform: translate(0, 0);       opacity: 0.4; }
-  50%  { transform: translate(50px, 30px); opacity: 0.9; }
-  100% { transform: translate(0, 0);       opacity: 0.4; }
-}
-
-/* ─── SVG line draw ─────────────────────────────────────────────────────────── */
-@keyframes draw {
-  from { stroke-dashoffset: 1000; }
-  to   { stroke-dashoffset: 0; }
-}
-@keyframes twinkle {
-  0%, 100% { opacity: 0.15; }
-  50%       { opacity: 1; }
-}@keyframes flow {
-  0%   { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -200; }
-}
-
-.line-draw   { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 2.5s cubic-bezier(0.4,0,0.2,1) forwards; }
-.line-draw-2 { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 3s   cubic-bezier(0.4,0,0.2,1) 0.4s forwards; }
-.line-draw-3 { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 3.5s cubic-bezier(0.4,0,0.2,1) 0.8s forwards; }
-.line-flow   { stroke-dasharray: 20 180; animation: flow 3s linear infinite; }
-
-/* ─── Orbit ─────────────────────────────────────────────────────────────────── */
-@keyframes orbit {
-  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
-}
-@keyframes orbit-reverse {
-  from { transform: rotate(0deg) translateX(120px) rotate(0deg); }
-  to   { transform: rotate(-360deg) translateX(120px) rotate(360deg); }
-}
-
-/* ─── Gradient text ─────────────────────────────────────────────────────────── */
+/* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #ec4899 50%, #f97316 100%);
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #c084fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ─── Shimmer ───────────────────────────────────────────────────────────────── */
-@keyframes shimmer {
-  from { background-position: -200% center; }
-  to   { background-position:  200% center; }
+/* ── Card lift ── */
+.card-lift {
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.25s ease;
 }
-.shimmer {
-  background: linear-gradient(90deg,
-    rgba(167,139,250,0.12) 0%,
-    rgba(167,139,250,0.4)  50%,
-    rgba(167,139,250,0.12) 100%);
-  background-size: 200% auto;
-  animation: shimmer 3s linear infinite;
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
 }
 
-/* ─── Card hover lift ───────────────────────────────────────────────────────── */
-.card-glow {
-  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
-}
-.card-glow:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 24px 48px -12px rgba(139,92,246,0.25);
-}
-
-/* ─── Morphing blob ─────────────────────────────────────────────────────────── */
-@keyframes morph {
-  0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-}
-.morph-blob { animation: morph 8s ease-in-out infinite; }
-
-/* ─── Scrolling tech strip ──────────────────────────────────────────────────── */
+/* ── Scrolling tech strip ── */
 @keyframes scroll-x {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-.scroll-track { animation: scroll-x 22s linear infinite; }
+.scroll-track { animation: scroll-x 28s linear infinite; }
 .scroll-track:hover { animation-play-state: paused; }
 
-/* ─── Number counter ────────────────────────────────────────────────────────── */
+/* ── Number counter ── */
 @keyframes count-up {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.count-animate { animation: count-up 0.6s ease forwards; }
 
-/* ─── Wave underline ────────────────────────────────────────────────────────── */
-@keyframes wave-in {
-  from { stroke-dashoffset: 300; }
-  to   { stroke-dashoffset: 0; }
+/* ── Dot grid pattern ── */
+.dot-grid {
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 28px 28px;
 }
+.dot-grid-dark {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Shimmer badge ── */
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+.shimmer-badge {
+  background: linear-gradient(90deg,
+    rgba(139,92,246,0.08) 0%,
+    rgba(139,92,246,0.22) 50%,
+    rgba(139,92,246,0.08) 100%);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Blink cursor ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.blink { animation: blink 1s step-end infinite; }

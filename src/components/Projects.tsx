@@ -4,38 +4,42 @@ import {
   LuFileText, LuFolderOpen, LuPenTool, LuSparkles,
   LuChartBarBig, LuUsers, LuFileCode2, LuGitBranch,
   LuTimer, LuCircleAlert, LuBuilding2, LuGitMerge,
+  LuArrowRight,
 } from "react-icons/lu";
 import type { IconType } from "react-icons";
 
-const notesFeatures: { Icon: IconType; title: string; description: string }[] = [
-  { Icon: LuFileText,   title: "Rich Notes",      description: "Write, edit, and format notes with a clean, distraction-free editor that keeps your thoughts organised." },
-  { Icon: LuFolderOpen, title: "Smart Folders",   description: "Group related notes into folders. Build any structure that matches the way you think." },
-  { Icon: LuPenTool,    title: "Infinite Canvas", description: "Sketch diagrams, flowcharts, and wireframes right alongside your notes — no context switching." },
-  { Icon: LuSparkles,   title: "AI Assistant",    description: "Ask questions, get summaries, and brainstorm ideas with a built-in AI chat that knows your notes." },
+interface Feature { Icon: IconType; title: string; description: string }
+
+const notesFeatures: Feature[] = [
+  { Icon: LuFileText,   title: "Rich Notes",      description: "Write, edit, and format notes with a clean, distraction-free editor." },
+  { Icon: LuFolderOpen, title: "Smart Folders",   description: "Group related notes into folders — any structure that fits your mind." },
+  { Icon: LuPenTool,    title: "Infinite Canvas", description: "Sketch diagrams and wireframes right alongside your notes." },
+  { Icon: LuSparkles,   title: "AI Assistant",    description: "Get summaries, brainstorm, and ask questions with built-in AI that knows your notes." },
 ];
 
-const gitStatsFeatures: { Icon: IconType; title: string; description: string }[] = [
-  { Icon: LuChartBarBig,  title: "Activity Heatmaps",        description: "Visualize commit patterns by hour, day, and month. Spot peak productivity windows and identify burnout risks." },
-  { Icon: LuUsers,       title: "Author Analytics",          description: "Deep-dive into per-author stats — commits, lines added/removed, active days, streaks, and peak hours." },
-  { Icon: LuFileCode2,   title: "File & Language Breakdown", description: "See your codebase composition by file extension and language. Understand what your repo is made of." },
-  { Icon: LuGitBranch,   title: "Branch & Multi-Platform",   description: "Switch branches instantly. Import from GitHub, GitLab, or Bitbucket — or upload your .git folder." },
-  { Icon: LuTimer,       title: "Parameter Metrics",         description: "Engineering KPIs from git history: cycle time, coding time, PR size distribution, and code rework ratio." },
-  { Icon: LuCircleAlert, title: "Bus Factor Analysis",       description: "Know your team's knowledge risk. See which files are owned by a single person." },
-  { Icon: LuBuilding2,   title: "Team Organisations",        description: "Invite team members with granular permissions. Org-level dashboards across all repos." },
-  { Icon: LuGitMerge,    title: "Stale Branch Detection",    description: "Automatically surface branches untouched for 30+ days. Keep your repo clean and your team focused." },
+const gitStatsFeatures: Feature[] = [
+  { Icon: LuChartBarBig,  title: "Activity Heatmaps",        description: "Visualize commit patterns by hour, day, and month." },
+  { Icon: LuUsers,        title: "Author Analytics",          description: "Per-author stats — commits, lines, streaks, peak hours." },
+  { Icon: LuFileCode2,    title: "Language Breakdown",        description: "Understand your codebase composition by file type." },
+  { Icon: LuGitBranch,    title: "Multi-Platform Import",     description: "GitHub, GitLab, Bitbucket — or upload your .git folder." },
+  { Icon: LuTimer,        title: "Engineering Metrics",       description: "Cycle time, PR size, coding time, code rework ratio." },
+  { Icon: LuCircleAlert,  title: "Bus Factor Analysis",       description: "Surface files owned by a single person." },
+  { Icon: LuBuilding2,    title: "Team Organisations",        description: "Org-level dashboards across all repos with granular permissions." },
+  { Icon: LuGitMerge,     title: "Stale Branch Detection",    description: "Auto-surface branches untouched for 30+ days." },
 ];
 
-function FeatureCard({ Icon, title, description, delay }: { Icon: IconType; title: string; description: string; delay: number }) {
+function FeatureGrid({ features }: { features: Feature[] }) {
   return (
-    <div
-      className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-3 sm:p-5 transition-all duration-300 hover:-translate-y-1"
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/10 flex items-center justify-center mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-200">
-        <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white/80 group-hover:text-white transition-colors" />
-      </div>
-      <h4 className="font-bold text-white text-xs sm:text-sm mb-1 sm:mb-2">{title}</h4>
-      <p className="text-[11px] sm:text-xs text-white/50 leading-relaxed group-hover:text-white/70 transition-colors">{description}</p>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y divide-white/6 sm:divide-x sm:divide-y-0 lg:divide-x lg:divide-y-0 [&>*:nth-child(n+3)]:sm:border-t [&>*:nth-child(n+3)]:sm:border-white/6">
+      {features.map(({ Icon, title, description }) => (
+        <div key={title} className="group p-5 sm:p-6 hover:bg-white/4 transition-colors">
+          <div className="w-8 h-8 rounded-lg bg-white/8 flex items-center justify-center mb-3 shrink-0">
+            <Icon className="w-4 h-4 text-white/60 group-hover:text-white/90 transition-colors" />
+          </div>
+          <h4 className="text-[13.5px] font-bold text-white/90 mb-2">{title}</h4>
+          <p className="text-[12.5px] text-white/45 leading-relaxed group-hover:text-white/65 transition-colors">{description}</p>
+        </div>
+      ))}
     </div>
   );
 }
@@ -44,81 +48,78 @@ export default function Projects() {
   const ref = useReveal();
 
   return (
-    <section id="projects" className="py-16 md:py-28 bg-white relative overflow-hidden">
-      <div aria-hidden="true" className="absolute inset-0 pointer-events-none"
-        style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #e2e8f0 1px, transparent 0)", backgroundSize: "40px 40px" }}
-      />
+    <section id="projects" className="py-20 md:py-32 bg-white relative overflow-hidden">
+      {/* Dot grid */}
+      <div aria-hidden="true" className="dot-grid absolute inset-0 opacity-30 pointer-events-none" />
 
-      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="text-center mb-12 md:mb-20">
-          <p className="reveal text-sm font-semibold uppercase tracking-widest text-purple-600 mb-3">Our Products</p>
-          <h2 className="reveal text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 stagger-1">
-            What We&apos;ve <span className="gradient-text">Built</span>
+      <div ref={ref} className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8">
+
+        {/* Header */}
+        <div className="max-w-xl mb-14 md:mb-20">
+          <p className="reveal text-xs font-bold uppercase tracking-widest text-violet-600 mb-4">Our Products</p>
+          <h2 className="reveal text-3xl sm:text-5xl font-extrabold text-zinc-900 leading-tight stagger-1">
+            Real tools,<br />
+            <span className="gradient-text">used by real people.</span>
           </h2>
-          <p className="reveal text-slate-500 mt-4 text-base sm:text-lg max-w-2xl mx-auto stagger-2">
-            Real tools, used by real people.
+          <p className="reveal text-zinc-500 mt-4 text-[15px] leading-relaxed stagger-2">
+            We don&apos;t just build projects — we build products people actually use every day.
           </p>
         </div>
 
         {/* Notes AI */}
-        <div className="reveal mb-10 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/10 border border-purple-100">
-          <div className="relative overflow-hidden bg-[#2d1b69] px-4 sm:px-8 py-6 sm:py-10">
-            <svg aria-hidden="true" className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice">
-              <defs><filter id="notes-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-              <path d="M0 100 L200 60 L400 120 L600 40 L800 80" fill="none" stroke="#a78bfa" strokeWidth="1.5" strokeOpacity="0.5" className="line-draw" filter="url(#notes-glow)" />
-              <path d="M0 150 L150 120 L350 160 L550 100 L800 140" fill="none" stroke="#c4b5fd" strokeWidth="1" strokeOpacity="0.3" className="line-draw-2" />
-              {[200,400,600].map((x,i)=>(
-                <circle key={i} cx={x} cy={i===0?60:i===1?120:40} r="4" fill="#a78bfa" fillOpacity="0.7" filter="url(#notes-glow)"
-                  style={{ animation: `twinkle 2s ease-in-out ${i*0.4}s infinite` }} />
-              ))}
-            </svg>
-            <div className="relative z-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-              <div className="flex-1 min-w-0">
-                <div className="text-xs font-bold uppercase tracking-widest text-purple-300 mb-2">Project 01</div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">Notes AI</h3>
-                <p className="text-purple-200 text-sm sm:text-base leading-relaxed">
-                  Capture ideas, draw your thoughts, and stay organised. Rich text, infinite canvas sketching, smart folders, and an AI assistant — all in one place.
+        <div className="reveal mb-5 rounded-2xl overflow-hidden border border-zinc-200 shadow-xl shadow-zinc-900/5">
+          {/* Header */}
+          <div className="bg-[#1a0f3e] px-6 sm:px-8 py-8 sm:py-10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
+              <div>
+                <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-violet-400/70 mb-3">Project 01</span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">Notes AI</h3>
+                <p className="text-violet-200/70 text-[14px] sm:text-[15px] leading-relaxed max-w-md">
+                  Capture ideas, sketch your thoughts, and stay organised. Rich text, infinite canvas,
+                  smart folders, and an AI assistant — all in one beautiful app.
                 </p>
               </div>
-              <a href="https://notes-ai.hivarsoft.com/" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-purple-700 font-semibold px-4 sm:px-5 py-2.5 rounded-xl hover:bg-purple-50 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap self-start shrink-0">
-                Launch App →
+              <a
+                href="https://notes-ai.hivarsoft.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-[#1a0f3e] font-bold px-5 py-2.5 rounded-xl hover:bg-violet-50 hover:shadow-lg hover:-translate-y-0.5 transition-all text-[13.5px] whitespace-nowrap self-start shrink-0"
+              >
+                Open App <LuArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 bg-[#1e1035]">
-            {notesFeatures.map((f, i) => <FeatureCard key={f.title} {...f} delay={i * 60} />)}
+          <div className="bg-[#130b2e]">
+            <FeatureGrid features={notesFeatures} />
           </div>
         </div>
 
         {/* GitStats */}
-        <div className="reveal stagger-2 rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200">
-          <div className="relative overflow-hidden bg-[#0f172a] px-4 sm:px-8 py-6 sm:py-10">
-            <svg aria-hidden="true" className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid slice">
-              <defs><filter id="git-glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-              <path d="M0 80 L100 50 L300 90 L500 30 L700 70 L800 50" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.4" className="line-draw" filter="url(#git-glow)" />
-              <path d="M0 140 L200 100 L400 150 L600 80 L800 120" fill="none" stroke="#818cf8" strokeWidth="1" strokeOpacity="0.3" className="line-draw-2" />
-              {[100,300,500,700].map((x,i)=>(
-                <circle key={i} cx={x} cy={i===0?50:i===1?90:i===2?30:70} r="3.5" fill="#38bdf8" fillOpacity="0.7" filter="url(#git-glow)"
-                  style={{ animation: `twinkle 2.5s ease-in-out ${i*0.3}s infinite` }} />
-              ))}
-            </svg>
-            <div className="relative z-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-              <div className="flex-1 min-w-0">
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Project 02</div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-3">GitStats</h3>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                  Turn your Git history into team intelligence. Upload any repo — or import from GitHub, GitLab, or Bitbucket — and get instant engineering metrics.
+        <div className="reveal stagger-2 rounded-2xl overflow-hidden border border-zinc-200 shadow-xl shadow-zinc-900/5">
+          {/* Header */}
+          <div className="bg-zinc-900 px-6 sm:px-8 py-8 sm:py-10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
+              <div>
+                <span className="inline-block text-[11px] font-bold uppercase tracking-widest text-zinc-500 mb-3">Project 02</span>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-2">GitStats</h3>
+                <p className="text-zinc-400 text-[14px] sm:text-[15px] leading-relaxed max-w-md">
+                  Turn your Git history into team intelligence. Upload any repo — or import from GitHub,
+                  GitLab, or Bitbucket — and get instant engineering metrics.
                 </p>
               </div>
-              <a href="https://gitstats.hivarsoft.com/" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-slate-800 font-semibold px-4 sm:px-5 py-2.5 rounded-xl hover:bg-slate-100 hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm whitespace-nowrap self-start shrink-0">
-                Launch App →
+              <a
+                href="https://gitstats.hivarsoft.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-zinc-900 font-bold px-5 py-2.5 rounded-xl hover:bg-zinc-100 hover:shadow-lg hover:-translate-y-0.5 transition-all text-[13.5px] whitespace-nowrap self-start shrink-0"
+              >
+                Open App <LuArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 bg-[#0a0f1e]">
-            {gitStatsFeatures.map((f, i) => <FeatureCard key={f.title} {...f} delay={i * 50} />)}
+          {/* Features */}
+          <div className="bg-[#0a0f1a]">
+            <FeatureGrid features={gitStatsFeatures} />
           </div>
         </div>
       </div>

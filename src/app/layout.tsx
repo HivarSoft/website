@@ -72,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} antialiased`}>
-      <body className="min-h-screen bg-[#050816] text-slate-900 font-sans">
+      <body className="min-h-screen bg-white text-zinc-900 font-sans">
         <ScrollObserver />
         {children}
       </body>
