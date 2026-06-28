@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#050816] text-white min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-[#050816] text-white flex items-center" style={{ minHeight: "100dvh" }}>
 
       {/* ── Animated SVG circuit / line background ── */}
       <svg
@@ -184,7 +184,7 @@ export default function Hero() {
       </svg>
 
       {/* ── Content ── */}
-      <div className="relative max-w-6xl mx-auto px-6 py-28 md:py-36 flex flex-col items-center text-center gap-8 z-10">
+      <div className="relative w-full max-w-6xl mx-auto px-6 py-16 flex flex-col items-center text-center gap-6 z-10">
 
         {/* Logo with pulse glow */}
         <div

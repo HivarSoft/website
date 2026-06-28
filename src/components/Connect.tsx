@@ -98,9 +98,9 @@ export default function Connect() {
                 {link.icon}
               </div>
               <div>
-                <div className="font-bold text-slate-900 group-hover:text-purple-700 transition-colors mb-1">
+                {/* <div className="font-bold text-slate-900 group-hover:text-purple-700 transition-colors mb-1">
                   {link.label}
-                </div>
+                </div> */}
                 <div className="text-xs text-slate-400 break-all leading-relaxed">{link.value}</div>
               </div>
               {/* Arrow */}
