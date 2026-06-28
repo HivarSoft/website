@@ -1,66 +1,74 @@
 import Image from "next/image";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-900 text-slate-400 py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 pb-8 border-b border-slate-800">
+    <footer className="bg-[#050816] text-slate-400 relative overflow-hidden">
+      {/* SVG top border line */}
+      <svg aria-hidden="true" className="w-full" height="2" viewBox="0 0 1400 2" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="footer-line" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stopColor="transparent" />
+            <stop offset="30%"  stopColor="#7c3aed" stopOpacity="0.6" />
+            <stop offset="70%"  stopColor="#a855f7" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="transparent" />
+          </linearGradient>
+        </defs>
+        <line x1="0" y1="1" x2="1400" y2="1" stroke="url(#footer-line)" strokeWidth="1.5" />
+      </svg>
+
+      <div className="max-w-6xl mx-auto px-6 py-14">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10 pb-10 border-b border-slate-800">
+          {/* Brand */}
           <div className="flex items-center gap-3">
-            <Image
-              src="/Logo.png"
-              alt="HivarSoft Logo"
-              width={32}
-              height={32}
-              className="rounded-lg"
-            />
-            <span className="text-white font-bold text-lg">HivarSoft</span>
+            <div className="relative">
+              <Image src="/Logo.png" alt="HivarSoft Logo" width={40} height={40} className="rounded-xl" />
+              <div className="absolute -inset-1 rounded-2xl bg-purple-500/20 blur-sm" />
+            </div>
+            <div>
+              <span className="text-white font-bold text-lg block">HivarSoft</span>
+              <span className="text-xs text-slate-500">Affordable & Open Source</span>
+            </div>
           </div>
 
+          {/* Nav links */}
           <nav className="flex flex-wrap justify-center gap-6 text-sm">
-            <a
-              href="#about"
-              className="hover:text-white transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#services"
-              className="hover:text-white transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#projects"
-              className="hover:text-white transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="https://github.com/HivarSoft"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/company/hivarsoft"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
+            {[
+              { label: "About",    href: "#about" },
+              { label: "Services", href: "#services" },
+              { label: "Projects", href: "#projects" },
+              { label: "GitHub",   href: "https://github.com/HivarSoft", external: true },
+              { label: "LinkedIn", href: "https://linkedin.com/company/hivarsoft", external: true },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
+                className="hover:text-purple-400 transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
           </nav>
+
+          {/* Products */}
+          <div className="flex gap-3">
+            <a href="https://notes-ai.hivarsoft.com/" target="_blank" rel="noopener noreferrer"
+              className="bg-slate-900 border border-slate-700 hover:border-purple-500 text-slate-300 hover:text-purple-300 text-xs font-medium px-3 py-1.5 rounded-lg transition-all">
+              Notes AI ↗
+            </a>
+            <a href="https://gitstats.hivarsoft.com/" target="_blank" rel="noopener noreferrer"
+              className="bg-slate-900 border border-slate-700 hover:border-purple-500 text-slate-300 hover:text-purple-300 text-xs font-medium px-3 py-1.5 rounded-lg transition-all">
+              GitStats ↗
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <p>
-            &copy; {new Date().getFullYear()} HivarSoft. All rights reserved.
-          </p>
-          <p className="text-slate-500 italic">
-            Building Software That Works. Pricing That Makes Sense.
-          </p>
+          <p>&copy; {year} HivarSoft. All rights reserved.</p>
+          <p className="text-slate-600 italic text-xs">Building Software That Works. Pricing That Makes Sense.</p>
         </div>
       </div>
     </footer>

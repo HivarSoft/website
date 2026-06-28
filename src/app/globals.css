@@ -20,3 +20,177 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* ─── Scroll reveal ─────────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ─── Hero animations ───────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px 0px rgba(139, 92, 246, 0.4); }
+  50%       { box-shadow: 0 0 40px 8px rgba(139, 92, 246, 0.7); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── SVG line draw ─────────────────────────────────────────────────────────── */
+@keyframes draw {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes draw-reverse {
+  from { stroke-dashoffset: -1000; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; r: 1.5px; }
+  50%       { opacity: 1;   r: 3px; }
+}
+@keyframes flow {
+  0%   { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -200; }
+}
+
+.line-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.line-draw-2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 3s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+.line-draw-3 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 3.5s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
+}
+.line-flow {
+  stroke-dasharray: 20 180;
+  animation: flow 3s linear infinite;
+}
+
+/* ─── Gradient text ─────────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #ec4899 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card hover glow ───────────────────────────────────────────────────────── */
+.card-glow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+.card-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(139, 92, 246, 0.25);
+}
+
+/* ─── Shimmer badge ─────────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(167, 139, 250, 0.15) 0%,
+    rgba(167, 139, 250, 0.4)  50%,
+    rgba(167, 139, 250, 0.15) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Typing cursor ─────────────────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor::after {
+  content: "|";
+  animation: blink 1s step-end infinite;
+  color: #a78bfa;
+}
+
+/* ─── Stagger helpers ───────────────────────────────────────────────────────── */
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.1s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.2s; }
+.stagger-5 { transition-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.3s; }
+.stagger-7 { transition-delay: 0.35s; }
+.stagger-8 { transition-delay: 0.4s; }
+
+/* ─── Orb blobs ─────────────────────────────────────────────────────────────── */
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+.morph-blob {
+  animation: morph 8s ease-in-out infinite;
+}
+
+/* ─── Tech badge scroll ─────────────────────────────────────────────────────── */
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.scroll-track {
+  animation: scroll-x 20s linear infinite;
+}
+.scroll-track:hover {
+  animation-play-state: paused;
+}
