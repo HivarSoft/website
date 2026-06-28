@@ -18,22 +18,22 @@ export default function Footer() {
         <line x1="0" y1="1" x2="1400" y2="1" stroke="url(#footer-line)" strokeWidth="1.5" />
       </svg>
 
-      <div className="max-w-6xl mx-auto px-6 py-14">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10 pb-10 border-b border-slate-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 pb-8 border-b border-slate-800">
           {/* Brand */}
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Image src="/Logo.png" alt="HivarSoft Logo" width={40} height={40} className="rounded-xl" />
+              <Image src="/Logo.png" alt="HivarSoft Logo" width={36} height={36} className="rounded-xl" />
               <div className="absolute -inset-1 rounded-2xl bg-purple-500/20 blur-sm" />
             </div>
             <div>
-              <span className="text-white font-bold text-lg block">HivarSoft</span>
+              <span className="text-white font-bold text-base sm:text-lg block">HivarSoft</span>
               <span className="text-xs text-slate-500">Creating Value Through Technology</span>
             </div>
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-wrap justify-center gap-6 text-sm">
+          <nav className="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm">
             {[
               { label: "About",    href: "#about" },
               { label: "Services", href: "#services" },
@@ -66,14 +66,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <p>&copy; {year} HivarSoft. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-xs text-slate-500">
+        <div className="flex flex-col items-center gap-2 sm:gap-3 text-xs sm:text-sm">
+          <p className="text-slate-400 text-center">&copy; {year} HivarSoft. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 text-slate-500">
             <a href="/terms" className="hover:text-purple-400 transition-colors">Terms of Service</a>
             <span>·</span>
             <a href="/privacy" className="hover:text-purple-400 transition-colors">Privacy Policy</a>
-            <span>·</span>
-            <span className="italic">Building Software That Works. One Step At a Time.</span>
+            <span className="hidden sm:inline">·</span>
+            <span className="hidden sm:inline italic text-slate-600">Building Software That Works. One Step At a Time.</span>
           </div>
         </div>
       </div>
