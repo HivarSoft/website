@@ -201,9 +201,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator — always at bottom, never overlapping */}
+      {/* Scroll indicator — hidden on mobile where content fills the viewport */}
       <div
-        className="relative z-10 flex flex-col items-center gap-1.5 text-slate-500 text-xs pb-6 sm:pb-8"
+        className="hidden sm:flex relative z-10 flex-col items-center gap-1.5 text-slate-500 text-xs pb-8"
         style={{ animation: "fade-in 1s ease 1.4s both" }}
       >
         <span className="tracking-widest uppercase text-[9px] sm:text-[10px]">Scroll</span>
