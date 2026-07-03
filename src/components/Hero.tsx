@@ -1,4 +1,9 @@
-import Image from "next/image"; 
+"use client";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+
+// Loaded client-side only — Three.js cannot run on the server
+const HeroThree = dynamic(() => import("./HeroThree"), { ssr: false });
 
 export default function Hero() {
   return (
@@ -6,11 +11,23 @@ export default function Hero() {
       className="relative overflow-hidden bg-zinc-950 text-white"
       style={{ minHeight: "calc(100dvh - 64px)" }}
     >
+      {/* Three.js particle graph */}
+      <HeroThree />
 
-      {/* Dot grid on top of aurora */}
+      {/* Dot grid sits on top for texture */}
       <div
         aria-hidden="true"
-        className="dot-grid-dark absolute inset-0 pointer-events-none opacity-60"
+        className="dot-grid-dark absolute inset-0 pointer-events-none opacity-40"
+      />
+
+      {/* Radial vignette so text is readable over the 3D scene */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 70% at 50% 50%, transparent 20%, rgba(9,9,11,0.55) 100%)",
+        }}
       />
 
       {/* Top border line */}
