@@ -86,9 +86,9 @@ export default function About() {
             {/* Stats — stacked list on mobile, row on sm+ */}
             <div className="reveal reveal-left stagger-2 mt-8 flex flex-col sm:flex-row gap-3">
               {[
-                { label: "Live Products",     special: "2+"  },
-                { label: "Open Source Repos", special: "OSS" },
-                { label: "Community",         special: "∞"   },
+                { label: "Live Products",     special: "3+"  },
+                { label: "Open Source Repos", special: "4+" },
+                // { label: "Community",         special: "-"   },
               ].map((s) => (
                 <div key={s.label} className="flex sm:flex-col items-center sm:items-start gap-3 sm:gap-0 p-4 bg-zinc-50 border border-zinc-100 rounded-2xl sm:flex-1">
                   <span className="text-2xl font-extrabold text-zinc-900 shrink-0">{s.special}</span>
