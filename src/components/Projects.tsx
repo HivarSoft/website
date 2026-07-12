@@ -5,6 +5,8 @@ import {
   LuChartBarBig, LuUsers, LuFileCode2, LuGitBranch,
   LuTimer, LuCircleAlert, LuBuilding2, LuGitMerge,
   LuArrowRight, LuLock, LuGlobe,
+  LuSlidersHorizontal, LuShieldAlert, LuBell, LuGauge,
+  LuServer,
 } from "react-icons/lu";
 import { FiGithub } from "react-icons/fi";
 import type { IconType } from "react-icons";
@@ -76,6 +78,15 @@ const schemes = {
     ctaText:    "text-zinc-900",
     ctaHover:   "hover:bg-zinc-100",
   },
+  /** Deep teal — PulseWatch */
+  teal: {
+    headerBg:  "bg-[#021f1f]",
+    gridBg:    "bg-[#011515]",
+    labelColor: "text-teal-400/70",
+    descColor:  "text-teal-200/70",
+    ctaText:    "text-[#021f1f]",
+    ctaHover:   "hover:bg-teal-50",
+  },
 } satisfies Record<string, ColorScheme>;
 
 // ─── Project Data ──────────────────────────────────────────────────────────────
@@ -118,8 +129,28 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "gitstats-v2",
+    id: "pulsewatch",
     number: "03",
+    name: "PulseWatch",
+    description:
+      "Production-grade uptime monitoring built on BullMQ and Redis. Track any HTTPS endpoint with per-service check intervals, smart incident detection, multi-channel alerts, and deep response-time analytics.",
+    href: "https://pulsewatch.hivarsoft.com/",
+    ctaLabel: "Open App",
+    gitLink: "https://github.com/HivarSoft/uptime-monitoring-system",
+    visibility: "open-source",
+    scheme: schemes.teal,
+    features: [
+      { Icon: LuSlidersHorizontal, title: "Custom Check Intervals",   description: "Set check frequency per service — from every 1 minute to every 24 hours. BullMQ workers process checks at scale with 50 concurrent threads." },
+      { Icon: LuShieldAlert,       title: "Smart Incident Detection", description: "Configure consecutive failures to trigger a DOWN alert and successes to confirm recovery. Eliminates false positives completely." },
+      { Icon: LuBell,              title: "Multi-Channel Alerts",     description: "Email (SMTP), Slack, Discord, Telegram, and generic webhooks. Test any channel with one click before incidents happen." },
+      { Icon: LuGauge,             title: "Response Time Analytics",  description: "Avg, min, max, and P95 latency tracked per service with interactive charts. Select any date range from 24h to 1 year." },
+      { Icon: LuChartBarBig,       title: "Uptime History & MTBF",    description: "Accurate uptime %, incident counts, downtime duration, and Mean Time Between Failures across 24h, 7d, 30d, and 365d windows." },
+      { Icon: LuServer,            title: "BullMQ Queue Architecture", description: "Checks are enqueued to Redis-backed BullMQ queues. Workers run concurrently, retry on failure, and scale horizontally." },
+    ],
+  },
+  {
+    id: "gitstats-v2",
+    number: "04",
     name: "GitStats V2",
     description:
       "Turn your Git history into team intelligence. Upload any repo — or import from GitHub, GitLab, or Bitbucket — and get instant engineering metrics.",
