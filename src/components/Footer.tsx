@@ -19,7 +19,7 @@ export default function Footer() {
   const connectLinks = [
     { label: "GitHub",   href: "https://github.com/HivarSoft"          },
     { label: "LinkedIn", href: "https://linkedin.com/company/hivarsoft" },
-    { label: "Email",    href: "mailto:hitesh.k.83080@gmail.com"        },
+    { label: "Email",    href: "mailto:hello@hivarsoft.com"        },
   ];
 
   return (
