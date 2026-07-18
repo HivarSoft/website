@@ -31,7 +31,7 @@ const contacts: {
     Icon: LuMail,
     label: "Email",
     description: "Reach us directly",
-    href: "mailto:hitesh.k.83080@gmail.com",
+    href: "mailto:hello@hivarsoft.com",
     accent: "hover:border-violet-200 hover:bg-violet-50/50",
     iconClass: "text-violet-600 bg-violet-50 border-violet-100",
   },

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "June 28, 2025";
-const CONTACT_EMAIL = "hitesh.k.83080@gmail.com";
+const CONTACT_EMAIL = "hello@hivarsoft.com";
 const COMPANY = "HivarSoft";
 const WEBSITE = "https://hivarsoft.com";
 
