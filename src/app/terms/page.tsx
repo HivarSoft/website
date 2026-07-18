@@ -33,7 +33,7 @@ export default function TermsOfService() {
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
               By accessing or using any {COMPANY} product or service — including{" "}
               <strong>Notes AI</strong> (<a href="https://notes-ai.hivarsoft.com" className="text-purple-600 hover:underline break-all">notes-ai.hivarsoft.com</a>)
-              and <strong>GitStats</strong> (<a href="https://gitstats.hivarsoft.com" className="text-purple-600 hover:underline break-all">gitstats.hivarsoft.com</a>)
+              and <strong>PulseWatch</strong> (<a href="https://pulsewatch.hivarsoft.com/" className="text-purple-600 hover:underline break-all">pulsewatch.hivarsoft.com</a>)
               — you agree to be bound by these Terms of Service. If you do not agree, you may not use our services.
             </p>
           </section>
@@ -45,7 +45,8 @@ export default function TermsOfService() {
             </p>
             <BulletList items={[
               "Notes AI — A note-taking application with rich text editing, infinite canvas, smart folders, and an AI assistant.",
-              "GitStats — A Git analytics platform that processes repository data to produce engineering metrics, author analytics, and team insights.",
+              "GitStats — A Git analytics platform that processes repository data to produce engineering metrics",
+              "PulseWatch - A uptime monitoring system to track and send alert on service failure or server crashes"
             ]} />
           </section>
 
@@ -67,7 +68,7 @@ export default function TermsOfService() {
                 ]}
                 notAccessed="We do not access Google Drive, Gmail, Calendar, or any other Google services. You may revoke access via Google Account Permissions."
               />
-              <OAuthBox
+              {/* <OAuthBox
                 emoji="🐙" title="GitHub OAuth"
                 intro="Used in GitStats to import repositories and read Git metadata:"
                 scopes={[
@@ -93,7 +94,7 @@ export default function TermsOfService() {
                   { code: "repositories", desc: "Repository list, commits, and branch data (read-only)" },
                 ]}
                 notAccessed="We do not push code, manage pipelines, or access Bitbucket Deployments. Revoke via Bitbucket App Authorizations."
-              />
+              /> */}
             </div>
           </section>
 
