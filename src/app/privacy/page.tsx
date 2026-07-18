@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
               {COMPANY} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your privacy.
               This Privacy Policy explains how we collect, use, store, and share information when you
-              use our products — including <strong>Notes AI</strong> and <strong>GitStats</strong> — and
+              use our products — including <strong>Notes AI</strong> and <strong>PulseWatch</strong> — and
               when you connect third-party services via OAuth (Google, GitHub, GitLab, Bitbucket).
             </p>
             <p className="text-slate-600 leading-relaxed mt-3 text-sm sm:text-base">
@@ -138,6 +138,15 @@ export default function PrivacyPolicy() {
               We retain your account data for as long as your account is active. Git repository data
               imported for analytics is processed in-session and not permanently stored beyond your
               dashboard. Upon account deletion, your personal data is removed within 30 days, except
+              where retention is required by law.
+            </p>
+          </section>
+
+           <section>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 mb-3">5. Data Retention</h2>
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              For PulseWatch we retain the response code with timestamp for the health route provided by user for
+              a service, these logs are stored untill the account is active. Upon account deletion, your personal data is removed within 30 days, except
               where retention is required by law.
             </p>
           </section>
