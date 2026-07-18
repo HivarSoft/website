@@ -148,27 +148,27 @@ const PROJECTS: Project[] = [
       { Icon: LuServer,            title: "BullMQ Queue Architecture", description: "Checks are enqueued to Redis-backed BullMQ queues. Workers run concurrently, retry on failure, and scale horizontally." },
     ],
   },
-  {
-    id: "gitstats-v2",
-    number: "04",
-    name: "GitStats V2",
-    description:
-      "Turn your Git history into team intelligence. Upload any repo — or import from GitHub, GitLab, or Bitbucket — and get instant engineering metrics.",
-    href: "https://gitstats.hivarsoft.com/",
-    ctaLabel: "Open App",
-    visibility: "private",
-    scheme: schemes.navy,
-    features: [
-      { Icon: LuChartBarBig, title: "Activity Heatmaps",     description: "Visualize commit patterns by hour, day, and month." },
-      { Icon: LuUsers,       title: "Author Analytics",       description: "Per-author stats — commits, lines, streaks, peak hours." },
-      { Icon: LuFileCode2,   title: "Language Breakdown",     description: "Understand your codebase composition by file type." },
-      { Icon: LuGitBranch,   title: "Multi-Platform Import",  description: "GitHub, GitLab, Bitbucket — or upload your .git folder." },
-      { Icon: LuTimer,       title: "Engineering Metrics",    description: "Cycle time, PR size, coding time, code rework ratio." },
-      { Icon: LuCircleAlert, title: "Bus Factor Analysis",    description: "Surface files owned by a single person." },
-      { Icon: LuBuilding2,   title: "Team Organisations",     description: "Org-level dashboards across all repos with granular permissions." },
-      { Icon: LuGitMerge,    title: "Stale Branch Detection", description: "Auto-surface branches untouched for 30+ days." },
-    ],
-  },
+  // {
+  //   id: "gitstats-v2",
+  //   number: "04",
+  //   name: "GitStats V2",
+  //   description:
+  //     "Turn your Git history into team intelligence. Upload any repo — or import from GitHub, GitLab, or Bitbucket — and get instant engineering metrics.",
+  //   href: "https://gitstats.hivarsoft.com/",
+  //   ctaLabel: "Open App",
+  //   visibility: "private",
+  //   scheme: schemes.navy,
+  //   features: [
+  //     { Icon: LuChartBarBig, title: "Activity Heatmaps",     description: "Visualize commit patterns by hour, day, and month." },
+  //     { Icon: LuUsers,       title: "Author Analytics",       description: "Per-author stats — commits, lines, streaks, peak hours." },
+  //     { Icon: LuFileCode2,   title: "Language Breakdown",     description: "Understand your codebase composition by file type." },
+  //     { Icon: LuGitBranch,   title: "Multi-Platform Import",  description: "GitHub, GitLab, Bitbucket — or upload your .git folder." },
+  //     { Icon: LuTimer,       title: "Engineering Metrics",    description: "Cycle time, PR size, coding time, code rework ratio." },
+  //     { Icon: LuCircleAlert, title: "Bus Factor Analysis",    description: "Surface files owned by a single person." },
+  //     { Icon: LuBuilding2,   title: "Team Organisations",     description: "Org-level dashboards across all repos with granular permissions." },
+  //     { Icon: LuGitMerge,    title: "Stale Branch Detection", description: "Auto-surface branches untouched for 30+ days." },
+  //   ],
+  // },
 ];
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
