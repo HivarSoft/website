@@ -13,7 +13,7 @@ export default function Footer() {
 
   const productLinks = [
     { label: "Notes AI",  href: "https://notes-ai.hivarsoft.com/" },
-    { label: "GitStats",  href: "https://gitstats.hivarsoft.com/" },
+    { label: "PulseWatch",  href: "https://pulsewatch.hivarsoft.com/" },
   ];
 
   const connectLinks = [
